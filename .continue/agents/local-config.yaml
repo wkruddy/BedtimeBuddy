@@ -1,0 +1,35 @@
+# yaml-language-server: $schema=../config-yaml-schema.json
+name: Personal Dev Setup (Local)
+version: 0.0.1
+schema: v1
+models:
+  - name: Qwen 3.6 MoE Chat (VM)
+    provider: ollama
+    model: qwen3.6:35b
+    apiBase: http://ai.homelab.internal:11434
+    capabilities:
+      - tool_use
+      - image_input
+    roles:
+      - chat
+      - edit
+    defaultCompletionOptions:
+      contextLength: 32768
+  - name: Qwen Fast Autocomplete (VM)
+    provider: ollama
+    model: qwen2.5-coder:3b
+    apiBase: http://ai.homelab.internal:11434
+    roles:
+      - autocomplete
+    defaultCompletionOptions:
+      contextLength: 4096
+    autocompleteOptions:
+      debounceDelay: 250
+      maxPromptTokens: 1024
+      onlyMyCode: true
+  - name: Nomic Embeddings (VM)
+    provider: ollama
+    model: nomic-embed-text
+    apiBase: http://ai.homelab.internal:11434
+    roles:
+      - embed

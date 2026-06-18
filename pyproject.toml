@@ -1,0 +1,36 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "bedtimebuddy"
+version = "0.1.0"
+description = "Agentic orchestration for bedtime stories and children's books"
+readme = "README.md"
+requires-python = ">=3.11"
+dependencies = [
+    "typer>=0.12",
+    "sqlalchemy>=2.0",
+    "alembic>=1.13",
+    "pydantic>=2.0",
+    "pydantic-settings>=2.0",
+    "slack-bolt>=1.19",
+    "httpx>=0.27",
+    "psycopg2-binary>=2.9",
+    "python-dotenv>=1.0",
+    "rich>=13.0",
+]
+
+[project.optional-dependencies]
+dev = ["ruff>=0.4"]
+
+[project.scripts]
+bedtimebuddy = "bedtimebuddy.cli:app"
+
+[tool.setuptools.packages.find]
+where = ["."]
+include = ["bedtimebuddy*"]
+
+[tool.ruff]
+line-length = 100
+target-version = "py311"

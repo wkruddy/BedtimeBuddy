@@ -1,0 +1,5 @@
+{
+  "yaml.schemas": {
+    ".continue/config-yaml-schema.json": ".continue/**/*.yaml"
+  }
+}
